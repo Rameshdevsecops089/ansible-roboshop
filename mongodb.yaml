@@ -1,4 +1,4 @@
-- name: configuring mongodb server
+- name: configuring mong  odb server
   become: yes
   hosts: mongodb
   tasks:
@@ -27,6 +27,6 @@
   - name: restart mongodb
     ansible.builtin.servive:
       name: mongod
-      start: restarted
+      state: restarted
 
 
