@@ -22,8 +22,8 @@
 
   - name: create app directory
     ansibble.builtin.file:
-    path: /app
-    state: directory
+      path: /app
+      state: directory
 
   - name: download catalogue code
     ansible.builtin.get_url:
@@ -34,6 +34,6 @@
     ansible.builtin.unarchive:
       src: /tmp/catalogue.zip
       dest: /app
-      
+
 
   
