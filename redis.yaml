@@ -1,5 +1,5 @@
 - name: install redis component
-  hosts: resis
+  hosts: redis
   become: yes
   tasks:
   - name: disable redis default module
@@ -24,7 +24,7 @@
       path: /etc/redis/redis.conf
       regexp: 'protected-mode'
       line: protected-mode no
-
+      
   - name: enable and start redis
     ansible.builtin.service:
       name: redis
