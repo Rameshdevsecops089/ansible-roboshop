@@ -1,4 +1,3 @@
-
 - name: configure catalogue component
   hosts: catalogue
   become: yes

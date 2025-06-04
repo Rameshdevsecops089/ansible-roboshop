@@ -1,4 +1,3 @@
-
 - name: configure user component
   hosts: user
   become: yes

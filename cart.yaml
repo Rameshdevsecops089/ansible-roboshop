@@ -1,4 +1,3 @@
-
 - name: configure cart component
   hosts: cart
   become: yes
