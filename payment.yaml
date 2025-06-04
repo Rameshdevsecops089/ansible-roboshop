@@ -7,9 +7,9 @@
       name: "{{ item }}"
       state: installed
     loop:
-    - python3
-    - gcc
-    - python3-deve1
+    - python3 
+    - gcc 
+    - python3-devel
 
   - name: create app directory
     ansible.builtin.file:
