@@ -1,3 +1,4 @@
+
 - name: configure cart component
   hosts: cart
   become: yes
@@ -12,14 +13,14 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
-    
+
   - name: create roboshop system user
     ansible.builtin.user:
       name: roboshop
       shell: /sbin/nologin
       system: true
       home: /app
-
+  
   - name: create app directory
     ansible.builtin.file:
       path: /app
@@ -27,18 +28,18 @@
 
   - name: download cart code
     ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
+      url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip 
       dest: /tmp/cart.zip
 
- # this module thinks file exist on ansible control server, needs to extract on to remote machine
- # remote_src: yes means files already exist in cart server
+  # this module thinks file exist on ansible control server, needs to extract on to remote machine
+  # remote_src: yes means files already exist in cart server
   - name: extract cart code
     ansible.builtin.unarchive:
       src: /tmp/cart.zip
       dest: /app
       remote_src: yes
 
-  - name: Install dependencies
+  - name: install dependencies
     community.general.npm:
       path: /app
 
@@ -56,12 +57,4 @@
       name: cart
       state: started
       enabled: yes
-
-
-
-      
-
-  
-
-
   
