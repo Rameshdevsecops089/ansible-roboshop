@@ -1,4 +1,5 @@
-- name: configuring mong  odb server
+
+- name: configuring mongodb server
   become: yes
   hosts: mongodb
   tasks:
@@ -18,7 +19,7 @@
       state: started
       enabled: yes
 
-  - name: allow remote connection
+  - name: allow remote connections
     ansible.builtin.replace:
       path: /etc/mongod.conf
       regexp: '127.0.0.1'
@@ -28,5 +29,3 @@
     ansible.builtin.service:
       name: mongod
       state: restarted
-
-
